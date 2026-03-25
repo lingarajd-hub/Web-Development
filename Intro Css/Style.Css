@@ -1,0 +1,19 @@
+h3{
+    color: chartreuse;
+}
+*{
+    font-size: 40px;
+    font-weight: 400;
+}
+h4{
+    color: chocolate;
+}
+.myclass{
+    color: darkblue;
+}
+#myid{
+    color: cadetblue;
+}
+h5,p{
+    color: crimson;
+}
