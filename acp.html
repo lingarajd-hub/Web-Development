@@ -1,60 +1,28 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <style type="text/css">
-            div {
-                right: 30px;
-                border: 3px solid #00ccff
-            }
-            div.absolute {
-                position: absolute;
-                left: 50px;
-                border: 3px solid rgb(0, 255, 174);
-            }
-            div.relative {
-                position: absolute;
-                left: 50px;
-                border: 3px solid #ff9500;
-            }
-            div.fixed {
-                position: fixed;
-                top: 0;
-                right: 20px;
-                width: 300px;
-                border: 3px solid #00ccff;
-            }
-             div.sticky {
-                position: sticky;
-                top: 1px;
-                right: 20px;
-                width: 100px;
-                border: 3px solid #00ccff;
-            }
-        </style>
-    </head>
-    <body>
-        <!-- change the position to show the difference
-         static
-         relative
-         fixed 
-         absolute 
-        sticky -->
-        <h2>POSITIONING</h2>
-        <div>
-            Div with no position property
+
+     <head>
+        <title>grid</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+     </head>
+
+     <body>
+        <div class="container-fluid">
+            <h1>Large grid</h1>
+            <p>Dummy data</p>
+
+        <div class="row">
+            <div class="col-lg-4" style="background-color: yellow;"> 
+                Dummy
+            </div>
+            <div class="col-lg-2" style="background-color: pink;"> 
+                Dummy
+                </div>
+            <div class="col-lg-6" style="background-color: rgb(11, 212, 88);"> 
+                Dummy
+                </div>
         </div>
-        <div class="sticky">
-            Div with sticky position property
         </div>
-        <div class="relative">
-            This div element has position: relative;
-        </div>
-        <div class="absolute">
-            absolute class DIV
-        </div>
-      </div>
-      <Div class="fixed">
-        div with fixed position property
-      </Div>
-    </body>
+     </body>
+
 </html>
