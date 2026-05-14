@@ -1,52 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <title>pagination</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Bootstrap Example</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
     <div class="container">
-        <h2>pagination</h2>
-        <ul class="pagination">
-            <li class="page-item">
-                <a class="page-link" href="#">Previous</a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="#">1</a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="#">2</a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="#">3</a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-            </li>
+        <h2>Carousel Example</h2>
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+         <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li> 
+         </ol>
+         <!-- Wrapper for slides -->
+          <div class="carousel-inner">
 
-            <body>
+<div class="item active">
 
-        <div class="container">
-            <h2>Spinners</h2>
-            <p>To create a spinner/loader, use the <code>.spinner border</code> class:</p>
+<img src="Luffy.avif" alt="book" width=300 height=300>
 
-            <div class="spinner-border"></div>
-        </div>
+</div>
 
-        <div class="container mt-5">
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">User name</h5>
-                <p class="card-text">Passionate about programming.</p>
+<div class="item">
 
-                <a href="#" class="btn btn-primary">See profile</a>
-            </div>
-        </div>
+<img src="Monkey_D._Luffy_Anime_Dos_A3Fs_Infobox.webp" alt="penguin" width=300 height=300>
+
+</div>
+
+<div class="item">
+
+SLIDE CHECKING
+
+<img src="X-Most-Iconic-Hats-In-Anime-Monkey-D-Luffys-Straw-Hat-(One-Piece).avif" alt="droplet" width=300 height=300>
+
+</div>
+
+</div>
+    <!-- Left and Right controls -->
+     <a class="left carousel-control" href="#mycarousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">Previous</span>
+     </a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="sr-only">Next</span>
+     </a>
     </div>
-        </ul>
-    </div>
+</div>
 </body>
 </html>
