@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Random Numbers Project</title>
+    </head>
+    <body>
+        <h2>Random Numbers and date</h2>
+        <button onclick="generateData()"></button>
+        <p id="numbers"></p>
+        <p id="date"></p>
+        <p id="rounded"></p>
+        <script>
+            function generateData() {
+                let output = "";
+                for(let i = 1; i <= 5; i++) {
+                    let num = Math.random() * 100;
+                    output+= Math.floor(num) + " ";
+                }
+                document.getElementById("numbers").innerHTML =
+                "Random Numbers: " + output;
+                 let today = new Date();
+                 document.getElementById("date").innerHTML =
+                "Current Date: " + today;
+                 let randomDecimal = Math.random() * 50;
+                 document.getElementById("rounded").innerHTML =
+                "Rounded Random Numbers: " + Math.round(randomDecimal);
+                
+            }
+        </script>
+    </body>
+</html>
