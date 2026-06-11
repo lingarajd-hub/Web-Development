@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<htmL>
+    <body>
+
+        <p>Multiply every element in the array with 10:</p>
+
+        <button onclick="myFunction">Click Me</button>
+
+        <p id="result"></p>
+
+        <script>
+            var numbers = [67, 76, 23, 32];
+            
+            function myFunction(num) {
+                return num * 87;
+            }
+
+            var newarray = numbers.map(myFunction);
+
+            document.getElementById("result").innerHTML = newarray;
+        </script>
+    </body>
+</htmL>
