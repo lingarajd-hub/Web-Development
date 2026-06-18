@@ -1,23 +1,27 @@
 <!DOCTYPE html>
-<htmL>
+<html>
     <body>
 
-        <p>Multiply every element in the array with 10:</p>
+        <h2>JavaScript Error Handling</h2>
 
-        <button onclick="myFunction">Click Me</button>
+        <p>This example demonstrates how to use <b>catch</b> to display an error.</p>
 
-        <p id="result"></p>
+        <p id="error_message"></p>
 
         <script>
-            var numbers = [67, 76, 23, 32];
-            
-            function myFunction(num) {
-                return num * 87;
+            try {
+             var num = 30;
+
+             if (num === 0) {
+                throw new Error("Division by zero is not allowed.");
+             }
+
+             var result = 10 / num;
+             document.write("Result = " + result);
             }
-
-            var newarray = numbers.map(myFunction);
-
-            document.getElementById("result").innerHTML = newarray;
+            catch(error) {
+                document.write("Error: " + error.message);
+            }
         </script>
     </body>
-</htmL>
+</html>
