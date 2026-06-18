@@ -1,100 +1,23 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>My Game Profile</title>
-        <style>
-            body {
-                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-                background: rgb(128, 161, 190);
-                text-align: center;
-                padding: 30px;
-            }
-            h1 { color: rgb(133, 133, 201); }
-            button {
-                background: rgb(124, 124, 173);
-                color: white;
-                padding: 10px 25px;
-                border: none;
-                border-radius: 20px;
-                cursor: pointer;
-            }
-            div {
-                border: 1px solid rgb(111, 111, 172);
-                width: 280px;
-                margin: 6px auto;
-                padding: 8px 12px;
-                text-align: left;
-                border-radius: 6px;
-            }
-        </style>
-    </head>
+<htmL>
     <body>
 
-        <h1>My Game Profile</h1>
-        <button onclick="showProfile()">Show Profile</button>
-        
-        <div>Name: <span id="name"></span></div>
-        <div>Score: <span id="score"></span></div>
-        <div>Top Score: <span id="record"></span></div>
-        <div>Rank: <span id="rank"></span></div>
-        <div>Greeting: <span id="greeting"></span></div>
-        <div>Stars: <span id="stars"></span></div>
-        <div>Bonus Level: <span id="bonus"></span></div>
-        <div>Team Name: <span id="team"></span></div>
+        <p>Multiply every element in the array with 10:</p>
+
+        <button onclick="myFunction">Click Me</button>
+
+        <p id="result"></p>
 
         <script>
-             
-        function showProfile() {
-
-            // Variables
-            let name     = "Dhruvaraj";
-            let myScore    = 75;
-            let highscore     = 100;
-            let bonus    = null;
-            let team;    
-
-            // Comparison Operator
-            let isTopScore = myScore == highscore;
-
-            // if / else - Rank
-            let rank;
-            if (myScore >=80) {
-                rank = "Ruby";
-            } else if (myScore >=50) {
-                rank = "Platinum";
-            } else {
-                rank = "Emerald";
-            }
-
-            // Date Object - Greeting
-            let hour = new Date().getHours();
-            let greeting;
-            if (hour < 12) {
-                greeting = "Good Morning!";
-            } else if (hour < 17) {
-                greeting = "Good Afternoon!";
-            } else {
-                greeting = "Good Evening!";
-            }
-
-            // While Loop - Stars
-            let stars = "";
-            let count = 0;
-            while (count < 5) {
-                stars = stars + "* ";
-                count = count + 1;
-            } 
+            var numbers = [67, 76, 23, 32];
             
-            // String Concatenation - Show on Page
-            document.getElementById("name").innerHTML   = name;
-            document.getElementById("score").innerHTML   = myScore + " out of " + highScore;
-            document.getElementById("record").innerHTML   = isTopScore;
-            document.getElementById("rank").innerHTML   = rank;
-            document.getElementById("greeting").innerHTML   = greeting;
-            document.getElementById("stars").innerHTML   = stars;
-            document.getElementById("bonus").innerHTML   = bonus;
-            document.getElementById("team").innerHTML   = team;
-          }
+            function myFunction(num) {
+                return num * 87;
+            }
+
+            var newarray = numbers.map(myFunction);
+
+            document.getElementById("result").innerHTML = newarray;
         </script>
     </body>
-</html>
+</htmL>
