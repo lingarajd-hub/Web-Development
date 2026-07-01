@@ -1,100 +1,85 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>My Game Profile</title>
         <style>
+
             body {
-                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-                background: rgb(128, 161, 190);
+                font-family: Arial, Helvetica, sans-serif;
+                background: aliceblue;
                 text-align: center;
                 padding: 30px;
             }
-            h1 { color: rgb(133, 133, 201); }
+
+            h1 {
+                color: navy;
+            }
+
+            input {
+                padding: 8px;
+                margin: 5px;
+                border: 2px solid navy;
+                border-radius: 6px;
+                width: 220px;
+            }
+
             button {
-                background: rgb(124, 124, 173);
+                background: navy;
                 color: white;
                 padding: 10px 25px;
                 border: none;
                 border-radius: 20px;
                 cursor: pointer;
             }
-            div {
-                border: 1px solid rgb(111, 111, 172);
-                width: 280px;
-                margin: 6px auto;
-                padding: 8px 12px;
-                text-align: left;
-                border-radius: 6px;
+
+            #timer {
+                color: grey;
             }
+
         </style>
     </head>
     <body>
 
-        <h1>My Game Profile</h1>
-        <button onclick="showProfile()">Show Profile</button>
-        
-        <div>Name: <span id="name"></span></div>
-        <div>Score: <span id="score"></span></div>
-        <div>Top Score: <span id="record"></span></div>
-        <div>Rank: <span id="rank"></span></div>
-        <div>Greeting: <span id="greeting"></span></div>
-        <div>Stars: <span id="stars"></span></div>
-        <div>Bonus Level: <span id="bonus"></span></div>
-        <div>Team Name: <span id="team"></span></div>
+        <h1>Event Registration!</h1>
+        <p>Enter your name and register for the swimming competition!</p>
+
+        <input type="text" id="name" placeholder="Your name" required><br>
+        <p id="msg-name"></p>
+
+        <input type="number" id="register" placeholder="Register your name" required><br>
+        <p id="msg-register"></p>
+
+        <button onclick="checkForm()">Register now!</button>
+        <p id="result"></p>
+        <p id="timer"></p>
 
         <script>
-             
-        function showProfile() {
 
-            // Variables
-            let name     = "Dhruvaraj";
-            let myScore    = 75;
-            let highscore     = 100;
-            let bonus    = null;
-            let team;    
+            var seconds = 0;
+            setInterval(function() {
+                seconds = seconds + 1;
+                document.getElementById("timer").textContent = "You have been here for " + seconds + "seconds!";
+            }, 1000);
 
-            // Comparison Operator
-            let isTopScore = myScore == highscore;
+            function checkForm() {
+                var name = document.getElementById("name").value;
+                 var guess = document.getElementById("register").value;
+                
 
-            // if / else - Rank
-            let rank;
-            if (myScore >=80) {
-                rank = "Ruby";
-            } else if (myScore >=50) {
-                rank = "Platinum";
-            } else {
-                rank = "Emerald";
-            }
+                 if (name == "") {
+                    document.getElementById("msg-name").textContent = "Please enter your name!";
+                    document.getElementById("msg-name").style.color = "red";
+                    ok = false;
+                 } else {
+                    document.getElementById("msg-name").textContent = "Great name!";
+                    document.getElementById("msg-name").style.color = "green";
+                 }
 
-            // Date Object - Greeting
-            let hour = new Date().getHours();
-            let greeting;
-            if (hour < 12) {
-                greeting = "Good Morning!";
-            } else if (hour < 17) {
-                greeting = "Good Afternoon!";
-            } else {
-                greeting = "Good Evening!";
-            }
+                 }
 
-            // While Loop - Stars
-            let stars = "";
-            let count = 0;
-            while (count < 5) {
-                stars = stars + "* ";
-                count = count + 1;
-            } 
+                 if (ok == true) {
+                    var lucky = Math.floor(Math.random() * 5) + 1;
+                    }
             
-            // String Concatenation - Show on Page
-            document.getElementById("name").innerHTML   = name;
-            document.getElementById("score").innerHTML   = myScore + " out of " + highScore;
-            document.getElementById("record").innerHTML   = isTopScore;
-            document.getElementById("rank").innerHTML   = rank;
-            document.getElementById("greeting").innerHTML   = greeting;
-            document.getElementById("stars").innerHTML   = stars;
-            document.getElementById("bonus").innerHTML   = bonus;
-            document.getElementById("team").innerHTML   = team;
-          }
         </script>
     </body>
 </html>
