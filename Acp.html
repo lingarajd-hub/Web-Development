@@ -1,22 +1,40 @@
 <!DOCTYPE html>
 <html>
-<head>
-   <link href="style.css" rel="stylesheet" type="text/css" />
+    <head>
+        <title>Perimeter Calculator</title>
     </head>
-
     <body>
-        <h1>Welcome to the international Wildlife club</h1>
-        <ul>
-            <li>Saving Wildlife</li>
-            <li>Jungle Adventures</li>
-            <li>International Wildlife areas</li>
-            <li>Mission Rescue</li>
-            <li>Wildlife wonders</li>
-        </ul>
-        <p>We humans have always loved to save animals. Let's help!</p>
-        <p>From rivers to jungles we see wildlife everywhere andits time to save them. Lets Go!</p>
-        <a href="#">Join our Mission</a>
-        <a href="#">Latest Nature news</a>
-        <a href="#">Gallery of the Wildlife</a>
+
+        <h1>Perimeter Calculator</h1>
+        <button onclick="calculatePerimeter()">Calculate Perimeter</button>
+
+        <script>
+            function calculatePerimeter() {
+             
+                var choice = prompt(
+                    "Welcome to Perimeter Calculator.\n" +
+                    "Please Enter your Choice.\n" +
+                    "1. Perimeter of Rectangle\n" +
+                    "2. Perimeter of Square\n" +
+                );
+
+                if (choice === "1") {
+                    var l = prompt("Enter the Length:");
+                    var b = prompt("Enter the Breadth:");
+
+                    var perimeter = 2* (Number(l) + Number(b));
+                    alert("Perimeter of Rectangle = " + perimeter);
+                }
+                 else if (choice === "2") {
+                    var b = prompt("Enter the Side:");
+                    var perimeter = (Number(b) *4);
+                    alert("Perimeter of Square = " + perimeter);
+            }
+              else {
+               alert("Invalid Choice! Please enter 1, or 2."); 
+              }
+            }
+        </script>
+
     </body>
 </html>
