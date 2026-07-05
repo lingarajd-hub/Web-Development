@@ -1,21 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
-      <title>Random Color Changer</title>
+        <title>Shopping list</title>
     </head>
     <body>
-
-        <button onclick="changeColor()">Change Color</button>
-
-        <script>
-            function changeColor() {
-                let r = Math.floor(Math.random() * 256);
-                let g = Math.floor(Math.random() * 256);
-                let b = Math.floor(Math.random() * 256);
-
-                let randomColor = `rgb(${r}, ${g}, ${b})`;
-                document.body.style.backgroundColor = randomColor;
+        <h2>Shopping list</h2>
+       <input type="text" id="item" placeholder="Enter item">
+       <button onclick="addItem()">Add</button>
+       <ul id="list"></ul>
+       <script>
+        function addItem() {
+            var item = document.getElementById("item").value;
+            if (item === "") {
+                alert("Enter an item");
+                return;
             }
-        </script>
+            var li = document.createElement("li");
+            li.innerHTML = item:
+            document.getElementById("list").appendChild(li);
+             document.getElementById("item").value = "";
+        }
+       </script>
     </body>
 </html>
