@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <!-- Slide Show -->
+         <section>
+            <img class="mySlides" src="8ecd2f2774d720b0f77e36d06b990252.jpg" style="height:500px;">
+            <img class="mySlides" src="sample-8f9176f9ee32183016fd01d956ff58bd.jpg" style="height:500px;">
+         </section>
+         <script>
+            // Automatic Slideshow - change image every 3 seconds
+            var myIndex = 0;
+            carousel();
+
+            function carousel() {
+                var i;
+                var x = document.getElementsByClassName("mySlides");
+                for (i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";
+                }
+                myIndex++;
+                if (myIndex > x.length) {myIndex = 1}
+                x[myIndex-1].style.display = "block";
+                setTimeout(carousel, 3000);
+            }
+         </script>
+    </body>
+</html>
