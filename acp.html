@@ -1,58 +1,91 @@
 <!DOCTYPE html>
-<html>
-
-<head>
-    <title>rando</title>
-    <style>
-   body {
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-top: 50px;
-   }
-
-   #number {
-    font-size: 50px;
-    margin: 20px;
-   }
-
-   button {
-    padding: 10px 20px;
-    font-size: 18px;
-   }
-    </style>
-</head>
-
-<body>
-
-    <h1>Random Number Generator</h1>
-    <div id="number">0</div>
-    <button onclick="handleClick()">click me</button>
-
-    <script>
-        let interval;
-        let clickCount = 0;
-
-        function startChanging() {
-            interval = setInterval(() => {
-            document.getElementById("number").innerText = Math.floor(Math.random() * 100);}, 500);
-        }
-
-        function stopChanging() {
-            clearInterval(interval);
-        }
-
-        function handleClick () {
-            clickCount++;
-
-            if (clickCount % 2 !== 0) {
-            stopChanging();  // odd click 
-         } else {
-            startChanging(); // even click
-         }
-        }
-
-        // Start automatically when page loads
-        startChanging();
-    </script>
-</body>
+<html lang="en">
+    <head>
+   <title>Simple Website</title>
+   <style>
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    nav {
+        background-color: #333;
+        padding: 15px;
+    }
+    nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+    }
+    nav ul li {
+        margin-right: 20px;
+    }
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+    }
+    nav ul li a:hover {
+        color: yellow;
+    }
+    .hero {
+        text-align: center;
+        padding: 50px;
+        background-color: #f4f4f4;
+    }
+    .gallery {
+        padding: 20px;
+        text-align: center;
+    }
+    .gallery img {
+        width: 250px;
+        height: 180px;
+        margin: 10px;
+        border-radius: 10px;
+    }
+    .about {
+        padding: 20px;
+        background-color: #f9f9f9;
+        text-align: center;
+    }
+    footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 15px;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+    }
+   </style>
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li><a href="home">Home</a></li>
+                <li><a href="gallery">Gallery</a></li>
+                <li><a href="about">About</a></li>
+            </ul>
+        </nav>
+        <section id="home" class="hero">
+            <h1>Welcome to My Website</h1>
+            <p>This is a simple website using HTML and CSS.</p>
+        </section>
+        <section id="gallery" class="gallery">
+            <h2>Gallery</h2>
+            <img src="https://via.placeholder.com/250x180" alt="Image 1">
+            <img src="https://via.placeholder.com/250x180" alt="Image 2">
+            <img src="https://via.placeholder.com/250x180" alt="Image 3">
+        </section>
+        <section id="about" class="about">
+            <h2>About Us</h2>
+            <p>
+                We provide simple and easy to-understand web development
+                tutorials and projects for beginners.
+            </p>
+        </section>
+        <footer>
+            <p>&copy; 2026 My Website | All Rights Reserved</p>
+        </footer>
+    </body>
 </html>
