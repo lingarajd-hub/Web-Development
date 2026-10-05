@@ -1,57 +1,75 @@
-# ================================
-# NUMBER GUESSING GAME
-# ================================
-
-# ---------- SETTINGS (given to you) ----------
-secret = 27
-max_attempts = 5
-count = 0
-guess = 0
-
-print("=" * 42)
-print(" 🎮 NUMBER GUESSING GAME")
-print("=" * 42)
-print("I have a secret number between 1 and 50.")
-print("You have 5 attempts to guess it.")
-print("After each wrong guess I will give you a hint.")
-print("Cold means far away from the number, warm means close to the number.")
-print()
-
-# ---------- PART 1: the loop and the guess ----------
-while count < max_attempts and guess != secret:
-    guess = int(input("Your guess: "))
-    count = count + 1
-
-    # ---------- PART 2: win or not ----------
-    if guess == secret:
-        print("You got it! You win!")
-
-    else:
-
-        # ---------- PART 3: distance and hint ----------
-        if guess > secret:
-            diff = guess - secret
-        else:
-            diff = secret - guess
-
-        if diff >= 20:
-            print("Ice cold")
-        elif diff >= 10:
-            print("Cold")
-        elif diff >= 5:
-            print("Warm")
-        else:
-            print("Hot")
-
-        # ---------- PART 4: lives left ----------
-        remaining = max_attempts - count
-
-        if remaining > 0:
-            for i in range(remaining):
-                print("❤️", end=" ")
-            print()
-
-# ---------- GAME OVER (after the loop) ----------
-if guess != secret:
-    print("Game over")
-    print("The secret number was", secret)
+# Loop Art Designer
+ 
+# PART 1: Star pyramid pattern
+print("===== STAR PYRAMID PATTERN =====")
+ 
+rows = int(input("Enter number of rows for star pattern: "))
+ 
+for i in range(rows):
+    for j in range(i + 1):
+        print("* ", end="")
+    print()
+ 
+ 
+# PART 2: Floyd's Triangle pattern
+print("")
+("===== FLOYD'S TRIANGLE =====")
+ 
+rows = int(input("Enter number of rows for Floyd's Triangle: "))
+number = 1
+ 
+for i in range(1, rows + 1):
+    for j in range(1, i + 1):
+        print(number, end=" ")
+        number += 1
+    print()
+ 
+ 
+# PART 3: Diamond number pattern
+print("")
+("===== DIAMOND NUMBER PATTERN =====")
+ 
+row_size = int(input("Enter number of rows for diamond pattern: "))
+ 
+if row_size % 2 == 0:
+    half_rows = row_size // 2
+else:
+    half_rows = row_size // 2 + 1
+ 
+space = half_rows - 1
+ 
+# Upper half of diamond
+for i in range(1, half_rows + 1):
+    for j in range(1, space + 1):
+        print(" ", end="")
+ 
+    space -= 1
+    number = 1
+ 
+    for j in range(2 * i - 1):
+        print(number, end="")
+        number += 1
+ 
+    print()
+ 
+# Lower half of diamond
+space = 1
+ 
+for i in range(1, half_rows):
+    for j in range(1, space + 1):
+        print(" ", end="")
+ 
+    space += 1
+    number = 1
+ 
+    for j in range(1, 2 * (half_rows - i)):
+        print(number, end="")
+        number += 1
+ 
+    print()
+ 
+ 
+# PART 4: Final message
+print("")
+("===== LOOP ART DESIGN COMPLETE =====")
+print("You created star, triangle, and diamond patterns using nested loops!")
