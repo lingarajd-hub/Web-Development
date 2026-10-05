@@ -1,54 +1,35 @@
-# Parking Ticket Payment Helper
+# Bill & Seating Helper
  
-# PART 1: A function that works out change and sends it back with return
-def calculate_change(paid, price):
-    change = paid - price
-    return change
+# PART 1: Define a function using positional arguments
+def total_bill(bill_amount, tip_perc):
+    # Calculate final bill after adding tip
+    total = bill_amount * (1 + 0.01 * tip_perc)
+    total = round(total, 2)
+    print(f"Please pay ${total}")
+    return total
  
-# PART 2: Set the parking ticket price and greet the customer
-ticket_price = 30
-print("===== PARKING TICKET PAYMENT HELPER =====")
-print(f"This parking ticket costs {ticket_price} units.")
-print("Accepted coins: 1, 5, 10, 25\n")
+# PART 2: Call the function with positional arguments
+total_bill(150, 20)
  
-total_inserted = 0
-coins_inserted = 0
  
-# PART 3: Keep accepting coins until enough money is inserted
-while True:
-    coin = int(input("Insert a coin (1, 5, 10, or 25): "))
+# PART 3: Define a recursive function with a docstring
+def seating_arrangements(guests):
+    '''This is a recursive function to find the number of seating arrangements for guests.'''
  
-    # PART 4: Reject any coin that isn't a valid value
-    if coin != 1 and coin != 5 and coin != 10 and coin != 25:
-        print("Invalid coin, try again!\n")
-        continue
+    # Base case
+    if guests == 0 or guests == 1:
+        return 1
  
-    # PART 5: Add the valid coin to the running total
-    total_inserted += coin
-    coins_inserted += 1
-    print(f"Inserted {coin}. Total so far: {total_inserted}\n")
+    # Recursive case
+    else:
+        return guests * seating_arrangements(guests - 1)
  
-    # PART 6: Stop asking for coins once enough has been inserted
-    if total_inserted >= ticket_price:
-        print("Enough money inserted!\n")
-        break
  
-# PART 7: Work out the change using the value returned by calculate_change
-change_due = calculate_change(total_inserted, ticket_price)
+# PART 4: Access and print the docstring
+print(seating_arrangements.__doc__)
  
-print("Printing your parking ticket...")
- 
-# PART 8: Nothing extra to do when the change is exactly zero
-if change_due == 0:
-    pass
-else:
-    print(f"Here is your change: {change_due} units")
- 
-# PART 9: Print a short summary of the payment
-print("\n===== PAYMENT SUMMARY =====")
-print("Ticket Price:", ticket_price)
-print("Coins Inserted:", coins_inserted)
-print("Total Paid:", total_inserted)
-print("Change Given:", change_due)
-print("===========================")
-print("Parking ticket payment complete!")
+# PART 5: Display seating arrangement results
+print("Seating arrangements for 1 guest:", seating_arrangements(1))
+print("Seating arrangements for 2 guests:", seating_arrangements(2))
+print("Seating arrangements for 3 guests:", seating_arrangements(3))
+print("Seating arrangements for 5 guests:", seating_arrangements(5))
