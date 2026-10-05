@@ -1,56 +1,57 @@
-# PART 1: Define a function with no arguments to greet the customer
-def greet_customer():
-    print("Welcome to the Art Supplies Store!")
-    print("Get your colours, brushes, and paper here.")
- 
-# PART 2: Call the greet_customer function
-greet_customer()
- 
-# PART 3: Ask for the price per item and the number of items bought
-price_per_item = float(input("Enter the price per art item in dollars: "))
-items_bought = int(input("Enter the number of art items bought: "))
- 
-# PART 4: Define a function that takes arguments and returns the total cost
-def calculate_total(price, items):
-    total = price * items
-    return total
- 
-# PART 5: Call calculate_total and store the value it returns
-total_cost = calculate_total(price_per_item, items_bought)
- 
-# PART 6: Use a built-in function to round the total, then print it
-rounded_total = round(total_cost, 2)
-print("Total Cost:", rounded_total)
- 
-# PART 7: Ask how much money the customer paid
-amount_paid = float(input("Enter the amount paid by the customer: "))
- 
-# PART 8: Define a function that takes arguments and returns the change due
-def calculate_change(paid, total):
-    change = paid - total
-    return change
- 
-# PART 9: Call calculate_change and store the value it returns
-change_due = calculate_change(amount_paid, rounded_total)
-rounded_change = round(change_due, 2)
- 
-# PART 10: Define a function that returns a thank you message based on items bought
-def thank_you_message(items):
-    if items >= 5:
-        return "Great choice! You picked many art supplies for your project."
+# ================================
+# NUMBER GUESSING GAME
+# ================================
+
+# ---------- SETTINGS (given to you) ----------
+secret = 27
+max_attempts = 5
+count = 0
+guess = 0
+
+print("=" * 42)
+print(" 🎮 NUMBER GUESSING GAME")
+print("=" * 42)
+print("I have a secret number between 1 and 50.")
+print("You have 5 attempts to guess it.")
+print("After each wrong guess I will give you a hint.")
+print("Cold means far away from the number, warm means close to the number.")
+print()
+
+# ---------- PART 1: the loop and the guess ----------
+while count < max_attempts and guess != secret:
+    guess = int(input("Your guess: "))
+    count = count + 1
+
+    # ---------- PART 2: win or not ----------
+    if guess == secret:
+        print("You got it! You win!")
+
     else:
-        return "Thanks for shopping at the art supplies store!"
- 
-# PART 11: Call thank_you_message and store the value it returns
-closing_message = thank_you_message(items_bought)
- 
-# PART 12: Print the final art supplies receipt
-print("")
-print("===== ART SUPPLIES BILL =====")
-print("Price Per Item:", price_per_item)
-print("Items Bought:", items_bought)
-print("Total Cost:", rounded_total)
-print("Amount Paid:", amount_paid)
-print("Change Due:", rounded_change)
-print(closing_message)
-print("=============================")
+
+        # ---------- PART 3: distance and hint ----------
+        if guess > secret:
+            diff = guess - secret
+        else:
+            diff = secret - guess
+
+        if diff >= 20:
+            print("Ice cold")
+        elif diff >= 10:
+            print("Cold")
+        elif diff >= 5:
+            print("Warm")
+        else:
+            print("Hot")
+
+        # ---------- PART 4: lives left ----------
+        remaining = max_attempts - count
+
+        if remaining > 0:
+            for i in range(remaining):
+                print("❤️", end=" ")
+            print()
+
+# ---------- GAME OVER (after the loop) ----------
+if guess != secret:
+    print("Game over")
+    print("The secret number was", secret)
