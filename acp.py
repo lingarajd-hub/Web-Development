@@ -1,88 +1,61 @@
-# ================================
-# GROCERY BILLING QUEUE
-# ================================
-
-print("=== Grocery Billing Queue ===\n")
-
-# ---------- PART 1: the five counters ----------
-low_price_items = 0
-medium_price_items = 0
-high_price_items = 0
-customers_served = 0
-total_sales = 0
-
-billing = True
-
-
-# ---------- PART 2: the OUTER while loop ----------
-while billing:
-
-    customer_name = input("Customer name: ")
-    item_count = int(input("How many items are they buying? "))
-
-    # ---------- PART 3: continue on a bad item count ----------
-    if item_count <= 0:
-        print("Item count must be greater than 0.\n")
-        continue
-
-    # ---------- PART 4: the INNER while loop ----------
-    customer_total = 0
-    item_number = 1
-
-    while item_number <= item_count:
-
-        item_name = input("Item name: ")
-        price = int(input("Price: "))
-        quantity = int(input("Quantity: "))
-
-        # ---------- PART 5: item total and price band ----------
-        if price <= 0 or quantity <= 0:
-            print("Price and quantity must be greater than 0.")
-            continue
-
-        item_total = price * quantity
-
-        print(item_name + ": " + str(quantity) + " x " + str(price) + " = " + str(item_total))
-
-        customer_total = customer_total + item_total
-
-        if item_total < 50:
-            low_price_items = low_price_items + 1
-        elif item_total <= 100:
-            medium_price_items = medium_price_items + 1
-        else:
-            high_price_items = high_price_items + 1
-
-        item_number = item_number + 1
-
-    # ---------- PART 6: finish the customer ----------
-    customers_served = customers_served + 1
-    total_sales = total_sales + customer_total
-
-    print(customer_name + "'s total: " + str(customer_total))
-
-    next_customer = input("Next customer? (yes/no): ")
-
-    if next_customer != "yes":
-        billing = False
-
-
-# ---------- PART 7: the NESTED for report ----------
-print("\n=== Daily Report ===")
-
-bands = [
-    ("Low price items", low_price_items),
-    ("Medium price items", medium_price_items),
-    ("High price items", high_price_items)
-]
-
-for band_name, count in bands:
-    print(band_name + ": ", end="")
-
-    for i in range(count):
-        print("*", end="")
-
+# Homework Completion Tracker
+ 
+# PART 1: Set today's total number of homework tasks
+total_homework = 4
+original_count = total_homework
+print(f"You have {original_count} homework tasks to finish today!\n")
+ 
+# PART 2: Keep a counter for completed homework and the current task number
+completed_count = 0
+task_num = 1
+ 
+# PART 3: Repeat while there are still homework tasks left
+while task_num <= total_homework:
+ 
+    # PART 4: Work out the current homework task from its number
+    if task_num == 1:
+        next_task = "Math worksheet"
+    elif task_num == 2:
+        next_task = "Science reading"
+    elif task_num == 3:
+        next_task = "English writing"
+    else:
+        next_task = "Coding practice"
+ 
+    answer = input(f"Have you finished: {next_task}? (yes/no): ")
+ 
+    # PART 5: Only move on once the task is marked done
+    if answer == "yes":
+        completed_count += 1
+        task_num += 1
+        print("Great job! Homework task completed.")
+    else:
+        print("Okay, finish it and check again!")
+ 
+    # PART 6: Print how many homework tasks remain
+    print("Homework tasks remaining:", total_homework - completed_count)
     print()
-
-print("Customers served:", customers_served)
-print("Total sales:", total_sales)
+ 
+# PART 7: This only prints once every homework task is marked done
+print("===== ALL HOMEWORK COMPLETE! =====")
+print("Great work finishing your homework today!\n")
+ 
+# PART 8: A safe look at what an infinite loop would look like
+print("Now let's safely peek at an infinite loop...")
+test_value = 0
+safety_counter = 0
+ 
+while test_value <= 0:
+    print("This condition never changes, so this would run forever!")
+    safety_counter += 1
+ 
+    if safety_counter == 3:
+        print("(Stopping here on purpose - a real infinite loop never stops on its own!)")
+        break
+ 
+# PART 9: Print the final homework checklist summary
+print("\n===== HOMEWORK COMPLETION SUMMARY =====")
+print("Homework Assigned Today:", original_count)
+print("Homework Completed:", completed_count)
+print("Homework Remaining:", total_homework - completed_count)
+print("=======================================")
