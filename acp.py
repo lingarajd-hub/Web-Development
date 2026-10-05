@@ -1,35 +1,56 @@
-# Bill & Seating Helper
+# PART 1: Define a function with no arguments to greet the customer
+def greet_customer():
+    print("Welcome to the Art Supplies Store!")
+    print("Get your colours, brushes, and paper here.")
  
-# PART 1: Define a function using positional arguments
-def total_bill(bill_amount, tip_perc):
-    # Calculate final bill after adding tip
-    total = bill_amount * (1 + 0.01 * tip_perc)
-    total = round(total, 2)
-    print(f"Please pay ${total}")
+# PART 2: Call the greet_customer function
+greet_customer()
+ 
+# PART 3: Ask for the price per item and the number of items bought
+price_per_item = float(input("Enter the price per art item in dollars: "))
+items_bought = int(input("Enter the number of art items bought: "))
+ 
+# PART 4: Define a function that takes arguments and returns the total cost
+def calculate_total(price, items):
+    total = price * items
     return total
  
-# PART 2: Call the function with positional arguments
-total_bill(150, 20)
+# PART 5: Call calculate_total and store the value it returns
+total_cost = calculate_total(price_per_item, items_bought)
  
+# PART 6: Use a built-in function to round the total, then print it
+rounded_total = round(total_cost, 2)
+print("Total Cost:", rounded_total)
  
-# PART 3: Define a recursive function with a docstring
-def seating_arrangements(guests):
-    '''This is a recursive function to find the number of seating arrangements for guests.'''
+# PART 7: Ask how much money the customer paid
+amount_paid = float(input("Enter the amount paid by the customer: "))
  
-    # Base case
-    if guests == 0 or guests == 1:
-        return 1
+# PART 8: Define a function that takes arguments and returns the change due
+def calculate_change(paid, total):
+    change = paid - total
+    return change
  
-    # Recursive case
+# PART 9: Call calculate_change and store the value it returns
+change_due = calculate_change(amount_paid, rounded_total)
+rounded_change = round(change_due, 2)
+ 
+# PART 10: Define a function that returns a thank you message based on items bought
+def thank_you_message(items):
+    if items >= 5:
+        return "Great choice! You picked many art supplies for your project."
     else:
-        return guests * seating_arrangements(guests - 1)
+        return "Thanks for shopping at the art supplies store!"
  
+# PART 11: Call thank_you_message and store the value it returns
+closing_message = thank_you_message(items_bought)
  
-# PART 4: Access and print the docstring
-print(seating_arrangements.__doc__)
- 
-# PART 5: Display seating arrangement results
-print("Seating arrangements for 1 guest:", seating_arrangements(1))
-print("Seating arrangements for 2 guests:", seating_arrangements(2))
-print("Seating arrangements for 3 guests:", seating_arrangements(3))
-print("Seating arrangements for 5 guests:", seating_arrangements(5))
+# PART 12: Print the final art supplies receipt
+print("")
+print("===== ART SUPPLIES BILL =====")
+print("Price Per Item:", price_per_item)
+print("Items Bought:", items_bought)
+print("Total Cost:", rounded_total)
+print("Amount Paid:", amount_paid)
+print("Change Due:", rounded_change)
+print(closing_message)
+print("=============================")
