@@ -1,72 +1,71 @@
-# ================================
-# SWIMMING POOL ENTRY CHECKER
-# ================================
-
-print("=== Swimming Pool Entry Checker ===")
-print("Answer 3 questions and I will tell you which pool you can use.\n")
-
-
-# ---------- collect the three answers ----------
-age = int(input("How old are you? "))
-can_swim = input("Can you swim 25 metres? (yes / no): ").lower()
-adult_here = input("Is an adult with you? (yes / no): ").lower()
-
-print()
-print("=== Entry Decision ===")
-print("-" * 32)
-
-
-# ---------- PART 1: age group ----------
-if age < 4:
-    print("Age group   : Toddler - splash pool only, always with an adult.")
-elif age < 12:
-    print("Age group   : Child - main pool with an adult.")
-elif age < 18:
-    print("Age group   : Teen - main pool alone if you can swim.")
-else:
-    print("Age group   : Adult - all pools open to you.")
-
-
-# ---------- PART 2: did they actually answer yes or no? ----------
-if can_swim != "yes" and can_swim != "no":
-    print("Input error : Please answer the swimming question with yes or no.")
-    swim_known = False
-else:
-    swim_known = True
-
-if adult_here != "yes" and adult_here != "no":
-    print("Input error : Please answer the adult question with yes or no.")
-    adult_known = False
-else:
-    adult_known = True
-
-
-# ---------- PART 3: AND - the deep pool ----------
-if can_swim == "yes" and adult_here == "yes":
-    print("Deep pool   : Allowed - you can swim and an adult is present.")
-
-
-# ---------- PART 4: OR - the shallow end ----------
-if age < 12 or can_swim == "no":
-    print("Shallow only: Stay in the shallow end today.")
-
-
-# ---------- PART 5: NOT - the lifeguard reminder ----------
-if adult_known == True and not (adult_here == "yes"):
-    print("Reminder    : No adult with you - the lifeguard must be told.")
-
-
-# ---------- PART 6: the final verdict ----------
-if swim_known == False or adult_known == False:
-    print("Verdict     : Cannot decide until both questions are answered properly.")
-elif age >= 18 and can_swim == "yes":
-    print("Verdict     : Full access. Enjoy your swim.")
-elif age >= 12 and can_swim == "yes" and adult_here == "yes":
-    print("Verdict     : Main pool access with your adult nearby.")
-elif can_swim == "no" and not (adult_here == "yes"):
-    print("Verdict     : Shallow end only, and please find an adult first.")
-else:
-    print("Verdict     : Shallow end today - come back with an adult for more.")
-
-print()
-print("Have a safe swim!")
+# Create an empty list
+empty_list = []
+print(empty_list)
+ 
+# PART 1: Create a list of student marks
+marks = [85, 72, 90, 66, 78]
+print("Student Marks:", marks)
+ 
+# PART 2: Use * operator to repeat a sample marks list
+sample_marks = [10, 20, 30] * 2
+print("Repeated Sample Marks:", sample_marks)
+ 
+# PART 3: Find the length of the marks list
+print("Number of marks:", len(marks))
+ 
+# PART 4: Access items using indexing
+print("First mark:", marks[0])
+print("Last mark:", marks[-1])
+ 
+# PART 5: Access a range using slicing
+first_three_marks = marks[0:3]
+print("First three marks:", first_three_marks)
+ 
+# PART 6: Reverse the marks list using slicing
+reversed_marks = marks[::-1]
+print("Reversed Marks:", reversed_marks)
+ 
+# PART 7: Function to find marks that start and end with same digit
+def match_marks(mark_list):
+    count = 0
+    matched_marks = []
+ 
+    for mark in mark_list:
+        mark_text = str(mark)
+ 
+        if len(mark_text) > 1 and mark_text[0] == mark_text[-1]:
+            count += 1
+            matched_marks.append(mark)
+ 
+    print("Marks with first and last digit same:", matched_marks)
+    return count
+ 
+same_digit_count = match_marks([88, 72, 99, 65, 77])
+print("Number of matching marks:", same_digit_count)
+ 
+# PART 8: Iterate through the list to find sum and average
+total = 0
+ 
+for mark in marks:
+    total += mark
+ 
+average = total / len(marks)
+ 
+print("Sum of marks:", total)
+print("Average marks:", average)
+ 
+# PART 9: Sort the list to find smallest and largest marks
+marks.sort()
+ 
+print("Smallest mark is:", marks[0])
+print("Largest mark is:", marks[-1])
+ 
+# PART 10: Print the final student marks summary
+print("")
+print("===== STUDENT MARKS LIST ANALYZER =====")
+print("Sorted Marks:", marks)
+print("Total Marks:", total)
+print("Average Marks:", average)
+print("Lowest Mark:", marks[0])
+print("Highest Mark:", marks[-1])
+print("=======================================")
