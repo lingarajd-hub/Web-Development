@@ -1,73 +1,41 @@
-# Smart Device Command Center
- 
-# PART 1: Import tools for abstraction
-from abc import ABC, abstractmethod
- 
-# PART 2: Create an abstract class
-class SmartDevice(ABC):
- 
-    # Common method
-    def show_device(self, name):
-        print("Device Name:", name)
- 
-    # Abstract method
-    @abstractmethod
-    def turn_on(self):
-        pass
- 
- 
-# PART 3: Create subclasses that override the abstract method
-class SmartLight(SmartDevice):
-    def turn_on(self):
-        print("Smart Light is now ON")
- 
- 
-class SmartFan(SmartDevice):
-    def turn_on(self):
-        print("Smart Fan is now ON")
- 
- 
-class SmartSpeaker(SmartDevice):
-    def turn_on(self):
-        print("Smart Speaker is now ON")
- 
- 
-# PART 4: Create objects and call their methods
-light = SmartLight()
-fan = SmartFan()
-speaker = SmartSpeaker()
- 
-light.show_device("Living Room Light")
-light.turn_on()
- 
-fan.show_device("Bedroom Fan")
-fan.turn_on()
- 
-speaker.show_device("Music Speaker")
-speaker.turn_on()
- 
- 
-# PART 5: Polymorphism without inheritance
-# These classes do not inherit from SmartDevice,
-# but they share the same method name.
- 
-class SecurityCamera:
-    def check_status(self):
-        print("Security Camera is recording")
- 
- 
-class DoorLock:
-    def check_status(self):
-        print("Door Lock is secure")
- 
- 
-# PART 6: Use the shared method name
-devices = [SecurityCamera(), DoorLock()]
- 
-print("")
-print("===== SMART DEVICE STATUS =====")
- 
-for device in devices:
-    device.check_status()
- 
-print("===============================")
+class Book:
+   # Constructor
+   def __init__(self, title, author):
+     self.title = title
+     self.author = author
+     self.is_borrowed = False
+
+# Borrow a book
+def borrow(self):
+    if not self.is_borrowed:
+        self.is_borrowed = True
+    else:
+        print(self.title, "is already borrowed")
+
+# Return a book
+def returned(self):
+    if not self.is_returned:
+        self.is_returned = False
+    else:
+        print(self.title, "is not returned") 
+
+# Create book objects
+book1 = Book("Harry Potter", "J.K. Rowling")
+book2 = Book("The Hobbit", "J.R.R. Tolkien")
+book3 = Book("Diary of a wimpy kid", "Jeff Kinney")
+
+# Display books
+
+print(book1)
+
+print(book2)
+
+print(book3)
+
+# Demonstrate borrowing and returning
+book1.borrow()
+book1.borrow()
+book1.return_book()
+
+# Display updated information
+print(book1)
