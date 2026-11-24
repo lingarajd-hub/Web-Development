@@ -4,23 +4,31 @@
 
 # ---------- PART 1: retry loop ----------
 valid = False
-# YOUR CODE HERE
-# Start a while loop that runs while valid is False (while not valid).
+
+while not valid:
 
     # ---------- PART 2: input and calculation ----------
-    # YOUR CODE HERE
-    # Start a try block. Inside it:
-    #   Ask for the bill, and turn it into a number with float().
-    #   Ask for the discount percent, and turn it into a number with float().
-    #   Ask for the number of people, and turn it into a whole number with int().
-    #   Work out the discount amount, the final bill and what each person pays.
+    try:
+        bill = float(input("Enter the bill amount: "))
+        discount = float(input("Enter the discount percentage: "))
+        people = int(input("Enter the number of people: "))
+
+        discount_amount = bill * discount / 100
+        final_bill = bill - discount_amount
+        each_person = final_bill / people
 
     # ---------- PART 3: handle errors ----------
-    # YOUR CODE HERE
-    # except ValueError: print a message about typing numbers only.
-    # except ZeroDivisionError: print a message that people cannot be 0.
+    except ValueError:
+        print("Please enter numbers only.")
+
+    except ZeroDivisionError:
+        print("The number of people cannot be 0.")
 
     # ---------- PART 4: else and finally ----------
-    # YOUR CODE HERE
-    # else: print the final bill and what each person pays, then set valid = True.
-    # finally: print "Attempt finished."
+    else:
+        print("Final bill:", final_bill)
+        print("Each person pays:", each_person)
+        valid = True
+
+    finally:
+        print("Attempt finished.")
