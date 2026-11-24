@@ -1,41 +1,26 @@
-class Book:
-   # Constructor
-   def __init__(self, title, author):
-     self.title = title
-     self.author = author
-     self.is_borrowed = False
+# ================================
+# SHOPPING DISCOUNT CALCULATOR
+# ================================
 
-# Borrow a book
-def borrow(self):
-    if not self.is_borrowed:
-        self.is_borrowed = True
-    else:
-        print(self.title, "is already borrowed")
+# ---------- PART 1: retry loop ----------
+valid = False
+# YOUR CODE HERE
+# Start a while loop that runs while valid is False (while not valid).
 
-# Return a book
-def returned(self):
-    if not self.is_returned:
-        self.is_returned = False
-    else:
-        print(self.title, "is not returned") 
+    # ---------- PART 2: input and calculation ----------
+    # YOUR CODE HERE
+    # Start a try block. Inside it:
+    #   Ask for the bill, and turn it into a number with float().
+    #   Ask for the discount percent, and turn it into a number with float().
+    #   Ask for the number of people, and turn it into a whole number with int().
+    #   Work out the discount amount, the final bill and what each person pays.
 
-# Create book objects
-book1 = Book("Harry Potter", "J.K. Rowling")
-book2 = Book("The Hobbit", "J.R.R. Tolkien")
-book3 = Book("Diary of a wimpy kid", "Jeff Kinney")
+    # ---------- PART 3: handle errors ----------
+    # YOUR CODE HERE
+    # except ValueError: print a message about typing numbers only.
+    # except ZeroDivisionError: print a message that people cannot be 0.
 
-# Display books
-
-print(book1)
-
-print(book2)
-
-print(book3)
-
-# Demonstrate borrowing and returning
-book1.borrow()
-book1.borrow()
-book1.return_book()
-
-# Display updated information
-print(book1)
+    # ---------- PART 4: else and finally ----------
+    # YOUR CODE HERE
+    # else: print the final bill and what each person pays, then set valid = True.
+    # finally: print "Attempt finished."
